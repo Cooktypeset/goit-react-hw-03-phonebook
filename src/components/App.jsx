@@ -40,12 +40,9 @@ export class App extends Component {
     }));
   };
 
-  componentDidMoumt() {
-    const contacts = localStorage.getItem('contacts');
-    const parsedContacts = JSON.parse(contacts);
-    if (parsedContacts) {
-      this.setState ({contacts: parsedContacts})
-    }
+  componentDidMount() {
+     const parsedContacts = JSON.parse(localStorage.getItem('contacts')) ?? [];
+    this.setState({ contacts: parsedContacts });
   };
 
   componentDidUpdate(prevProps, prevState) {
